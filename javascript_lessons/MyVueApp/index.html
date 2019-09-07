@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Vue App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div id="app" class="container">
+      <!-- 02 Vue.jsの基本をおさえよう -->
+      <!-- <p>Hello {{ name }}!</p> -->
+      <!-- <p>Hello {{ name.toUpperCase() }}!</p>
+      <p><input type="text" v-model="name" /></p> -->
+
+      <!-- 03 ToDoアプリを作ってみよう -->
+      <h1>My Todos</h1>
+      <ul>
+        <!-- <li>{{ todos[0] }}</li>
+        <li>{{ todos[1] }}</li>
+        <li>{{ todos[2] }}</li> -->
+        <li v-for="todo in todos">{{ todo }}</li>
+        <form>
+          <input type="text" />
+          <input type="submit" value="Add" />
+        </form>
+      </ul>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+      <script src="js/main.js"></script>
+    </div>
+  </body>
+</html>

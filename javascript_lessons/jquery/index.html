@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>jQueryの練習</title>
+    <style>
+      .myStyle {
+        border: 5px solid green;
+        font-size: 48px;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="">jQueryの練習</p>
+    <!-- // 03 idやclassを指定してみよう -->
+    <!-- <ul id="main">
+      <li>0</li>
+      <li class="item">1</li>
+      <li class="item">2</li>
+      <li>
+        3
+        <ul id="sub">
+          <li>3-0</li>
+          <li>3-1</li>
+          <li class="item">3-2</li>
+          <li class="item">3-3</li>
+          <li>3-4</li>
+        </ul>
+      </li>
+    </ul> -->
+    <!-- // 07 属性セレクタを使ってみよう (02:47) -->
+    <!-- <p><a href="http://google.com">Google</a></p>
+    <p><a href="http://yahoo.co.jp">Yahoo!</a></p>
+    <p><a href="http://dotinstall.com">Dotinstall</a></p> -->
+
+    <!-- // 09 attr､dataを使ってみよう (02:39) -->
+    <!-- <a href="http://google.com" data-sitename="google">google</a> -->
+
+    <!-- // 10 タグの中身を操作してみよう (02:59) -->
+    <!-- <input type="text" value="hello" /> -->
+
+    <!-- // 11 要素を追加してみよう (02:58) -->
+    <!-- <ul>
+      <li>0</li>
+      <li>1</li>
+      <li>2</li>
+    </ul> -->
+
+    <!-- // 12 エフェクトを使ってみよう (02:58) -->
+    <!-- <div id="box" style="width:100px;height:100px;background:red;"></div> -->
+
+    <!-- // 14 focus､blur､changeを使おう (02:54) -->
+    <!-- <input type="text" id="name" />
+    <select id="members" name="members">
+      <option>taguchi</option>
+      <option>fkoji</option>
+      <option>dotinstall</option>
+    </select> -->
+
+    <!-- // 15 onメソッドを使ってみよう (02:59) -->
+    <!-- <button>Add!</button> -->
+
+    <!-- // 16 Ajaxとはなにか？ (02:57) -->
+    <button>もっと読む</button>
+    <div id="result"></div>
+
+    <!-- // 17 loadメソッドを使ってみよう (02:52) -->
+    <!-- // 18 非同期通信とはなにか？ (02:15) -->
+    <!-- // 19 $.getを使ってみよう (02:59) -->
+    <!-- // 20 JSONで値を返してみよう (02:56) -->
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+      // $(document).ready(function() {});
+      $(function() {
+        // 02 はじめてのjQuery
+        // $("p")
+        //   .css("color", "red")
+        //   .hide("slow");
+        // 03 idやclassを指定してみよう
+        // セレクタ.メソッド
+        // $("")
+        // html要素 p h1 ul
+        // $("p").css("color", "red");
+        // id #main
+        // $("#sub").css("color", "red");
+        // class .item
+        // $(".item").css("color", "red");
+        // #
+        // 04 もっとセレクタを使ってみよう
+        // # .
+        // > 直下の子要素
+        // $("#main > .item").css("color", "red");
+        //   それ以下の要素
+        // $("#main .item").css("color", "red");
+        // , 複数の要素
+        // $("p, .item").css("color", "red");
+        // + 隣接する要素(.itemの隣の.itemを指定)
+        // $(".item + .item").css("color", "red");
+        // 05 フィルタを使ってみよう
+        // セレクタ.メソッド
+        // フィルタ
+        // :eq()
+        // $("#sub > li:eq(2)").css("color", "red");
+        // :gt(), :lt() x<  x>
+        // $("#sub > li:gt(1)").css("color", "red");
+        // :even, :odd 奇数、偶数
+        // $("#sub > li:even").css("color", "red");
+        // :contains() 要素の中身に含まれている文字
+        // $("#sub > li:contains('3')").css("color", "red");
+        // :first, :last
+        // $("#sub > li:last").css("color", "red");
+        // 06 メソッドを使ったDOM要素指定
+        // セレクタ.メソッド
+        // parent(), children()　親、子
+        // $("#sub").children().css("color", "red");
+        // // next(), prev()  次、前
+        // $("#sub > li:eq(2)").next().css("color", "red");
+        // // siblings() - 兄弟要素
+        // $("#sub > li:eq(2)").siblings().css("color", "red");
+        // 07 属性セレクタを使ってみよう (02:47)
+        // 属性セレクタ
+        // =(等しい) !=(等しくない) *=(含まれる） ^=(で始まる） $=（出終わる）
+        // $('a[href="http://google.com"]').css("background", "red");
+        // $('a[href*="oo"]').css("background", "red");
+        // $('a[href$="jp"]').css("background", "red");
+        // 08 css､addClass/removeClassを使おう (02:49)
+        // $("p")
+        //   .css("color", "red")
+        //   .css("background", "blue");
+        // console.log($("p").css("color"));
+        // addClass removeClass
+        // $("p").addClass("myStyle");
+        // $("p").removeClass("myStyle");
+        // 09 attr､dataを使ってみよう (02:39)
+        // attr
+        // console.log($("a").attr("href"));
+        // $("a").attr("href", "http://google.co.jp");
+        // console.log($("a").data("sitename"));
+        // 10 タグの中身を操作してみよう (02:59)
+        // タグの値を設定
+        // $("p").text("just changed");
+        // htmlのタグ書き換え
+        // $("p").html('<a href="">click me!</a>');
+        // inputタグのvalue取得と設定
+        // console.log($("input").val());
+        // $("input").val("hello, again!");
+        // タグの削除
+        // $("p").remove();
+        // 11 要素を追加してみよう (02:58)
+        // var li = $("<li>").text("just added");
+        // before, after, inserBefore, insertAfter -> 指定要素の前に追加 (下は同じ結果)
+        // $("ul > li:eq(1)").after(li);
+        // li.insertAfter($("ul > li:eq(1)"));
+        // prepend, append -> prependTo, appendTo →要素の最初、最後に追加
+        // $("ul").append(li);
+        // li.appendTo($("ul"));
+        // 12 エフェクトを使ってみよう (02:58)
+        // hide, show   消す、表示
+        // $("#box").hide(800);
+        // $("#box").show(800);
+        // // fadeOut, fadeIn ふわっと消す、表示
+        // $("#box").fadeOut(800);
+        // $("#box").fadeIn(800);
+        // // toggle 表示してたら消す、消えてたら表示
+        // $("#box").toggle(800);
+        // $("#box").toggle(800);
+        // // callback関数指定も可。処理後に処理を実施
+        // $("#box").fadeOut(800, function() {
+        //   alert("gone!");
+        // });
+        // 13 イベントを使ってみよう (02:43)
+        // click
+        // $("#box").click(function() {
+        //   alert("hi!");
+        // });
+        // mouseover, mouseout, mousemove
+        // $("#box")
+        //   .mouseover(function() {
+        //     $(this).css("background", "green");
+        //   })
+        //   .mouseout(function() {
+        //     $(this).css("background", "red");
+        //   })
+        //   .mousemove(function(e) {
+        //     $(this).text(e.pageX);
+        //   });
+        // 14 focus､blur､changeを使おう
+        //focus(選択）､blur（離れる）
+        // $("#name")
+        //   .focus(function() {
+        //     $(this).css("background", "red");
+        //   })
+        //   .blur(function() {
+        //     $(this).css("background", "white");
+        //   });
+        // //change(値の変更)
+        // $("#members").change(function() {
+        //   alert("changed!");
+        // });
+
+        // 15 onメソッドを使ってみよう (02:59)
+        //クリックされた要素を追加
+        // $("button").click(function() {
+        //   var p = $("<p>")
+        //     .text("vanish!")
+        //     .addClass("vanish");
+        //   $(this).before(p);
+        // });
+
+        //追加した要素をクリックしたら削除（これはERROR。最初に読み込まれる時ないものは駄目）
+        // $(".vanish").click(function() {
+        //   $(this).remove();
+        // });
+
+        //追加した要素をクリックしたらOK
+        // $("body").on("click", ".vanish", function() {
+        //   $(this).remove();
+        // });
+
+        // 16 Ajaxとはなにか？ (02:57)
+        // 17 loadメソッドを使ってみよう (02:52)
+        //サーバからページを読み込む
+        $("button").click(function() {
+          $("#result").load("more.html");
+        });
+
+        // 18 非同期通信とはなにか？ (02:15)
+        $("button").click(function() {
+          //表示後赤にする（ERROR。駄目な例。非同期なので、読み込み前に読み込む)
+          $("#result").load("more.html");
+          $("#message").css("color", "red");
+          //表示後赤にする（OK)
+          $("#result").load("more.html", function() {
+            $("#message").css("color", "red");
+          });
+        });
+
+        // 19 $.getを使ってみよう (02:59)
+        // 20 JSONで値を返してみよう (02:56)
+        // $.post, $.get
+        $("#greet").click(function() {
+          $.get(
+            "greet.php",
+            {
+              name: $("#name").val()
+            },
+            function(data) {
+              $("#result").html(data.message + "(" + data.length + ")");
+            }
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
